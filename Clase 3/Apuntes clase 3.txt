@@ -1,0 +1,31 @@
+			Permisos de archivos
+
+			Descripcion de los archivos
+d -> directorio
+- -> archivo
+l -> enlace
+Dispositivos
+b -> dispositivos de bloques (almacenamiento)
+c -> dispositivo de caracteres (impresora, terminal, etc)
+
+
+			Permisos en el terminal
+$ -> usuario
+# -> administrador (root)
+
+
+			Comandos del terminar
+cd -> change directory, cambia el directorio. // Vuelve al home.
+cd . -> Directorio actual
+cd .. -> Vuelve un directorio hacia atras.
+cd - -> Vuelve al anterior directorio
+cd ../../!n -> Vuelve X cantidad de veces en sí.
+
+https://en.wikipedia.org/wiki/Ln_(Unix)
+ln -> Crea un puntero a un archivo.(Probar) // -s -> Crea un acceso directo.(Probar) (Presentacion de la Clase 3)
+
+pwd -> En que directorio/direccion estoy parado.
+
+cat -> Vemos que proceso se esta ejecutando dentro de las || Misma funcion que el comando more y less, con la diferencia que el contenido completo se muestra en pantalla
+
+more y less -> Funcionan como el cat, muestan mas o menos inforamcion, con la Q podemos salir. Si usamos /(letra/palabra) resalta lo buscado
