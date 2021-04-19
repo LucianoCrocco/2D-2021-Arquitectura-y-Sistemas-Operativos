@@ -1,4 +1,15 @@
 			Permisos de archivos
+SuperUsuario			Grupos			Invitados
+WRX				-RX			-RX
+WRX				-RX			--X
+WRX				--X			---
+WRX				---			---
+
+W: Write/Escribir en el archivo
+R: Read/Leer el contenido del archivo
+X: Execute/Ejecutar el archivo
+
+Existen las 3 categorias anteriormente mencionadas, dependiendo de los permisos que otorguemos éstas podrán escribir, leer o ejectuar los archivos
 
 			Descripcion de los archivos
 d -> directorio
