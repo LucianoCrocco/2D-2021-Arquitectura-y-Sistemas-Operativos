@@ -1,15 +1,15 @@
 			Permisos de archivos
 SuperUsuario			Grupos			Invitados
-WRX				-RX			-RX
-WRX				-RX			--X
-WRX				--X			---
-WRX				---			---
+RWX				RW-			R--
 
-W: Write/Escribir en el archivo
 R: Read/Leer el contenido del archivo
+W: Write/Escribir en el archivo
 X: Execute/Ejecutar el archivo
 
-Existen las 3 categorias anteriormente mencionadas, dependiendo de los permisos que otorguemos éstas podrán escribir, leer o ejectuar los archivos
+Existen las 3 categorias anteriormente mencionadas, dependiendo de los permisos que otorguemos éstas podrán escribir, leer o ejectuar los archivos, pueden existir las 3 combiaciones posibles de WRX, el orden de los permisos(S.U - G - I)  es tal cual el cuadro.
+
+Se mostraran todos los grupos a la hora de listar EJEMPLO: (DESCRIPCION)rwxr-xr-x ->(rwx/r-x/r-x) 
+La descripcion es la letra de escripcion del archivo. En este ejemplo el SuperUsuario tiene acceso a las 3 categorias, mientras que el grupo y los invitados solo a "Read" y "Execute".
 
 			Descripcion de los archivos
 d -> directorio
