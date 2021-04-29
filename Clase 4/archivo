@@ -1,0 +1,3 @@
+whatis me busca la cantidad de manuales que puede haber con ese nombre
+apropos "nombre"-> Busca nombres y descripciones de páginas de manual.
+whatis "nombre" -> Muestra la descripcion de una linea del manual.

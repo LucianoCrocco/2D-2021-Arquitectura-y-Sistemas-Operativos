@@ -1,0 +1,99 @@
+cat /etc/shells -> Los distintos interpretes de comandos que tengo disponible para ejecutar mi shell
+
+Flecha arriba/abajo -> Muestra el historial de comandos
+Doble tab -> Muestra la cantidad de comandos que existen con las letras ingresadas
+CTRL+R -> Te permite buscar un comando en el "historial" que guarda shell
+cat .bashrc -> Muestra la configuracion del usuario y del historial de comandos que utilizamos en bash. Existe en mi home.
+	# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+	HISTSIZE=1000
+	HISTFILESIZE=2000
+Mirar el resto de comandos en la diapositiva
+
+nano "nombre.sh" Crea/abre el ejectuable de nuestro programa en bash. (En las comillas el nombre del archivo)
+
+#!"/bin/bash" -> Le digo que tipo de shell voy a utilizar/interpretar el codigo. (En las comillas el PATH de la shell)
+
+chmod +x "programa" -> Le agrego el permiso X (ejecucion) a todos los grupos de linux.
+
+Por reglas de estilo las variables las definimos en MAYUSCULAS
+
+env o printenv -> Me permite ver las variables que estan definidas. 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin -> Los ":" cambian la ruta de busqueda del PATH. El PATH permite ejecutar comandos como el autocompletar del TAB.
+PATH=$PATH -> ":/home/luciano/..." Agrego un directorio temporal para el $PATH
+
+
+echo -n "Introduzca su nombre" el -n permite omitir el salto de linea cuando ingresa el dato un usuario.
+
+if [ $USER == "root" ]; then
+ echo "Sos root"
+else 
+ echo "Solo lo podes ejecutar como root"
+fi
+los if y elif los cierro con un fi
+MUY IMPORTANTE LOS ESPACIOS ENTRE CONDICIONES
+El == es SOLO para comparacion entre caracteres
+Los operadores de comparacion entre numeros estan en la diapositiva
+En la Guia hay distintos operadores para comparar el tamaño de archivos, si es un archivo de 0 byte, etc. 
+
+sh -x ./"Programa" depura de errores el programa, no es una forma muy "linda"
+
+  GNU nano 4.8                            prog07.sh                             Modificado  
+#!/bin/bash
+
+
+
+Me permite ejecutar un comando el operador `
+for LINEA in `cat /etc/passwd`; do
+ echo $LINEA
+done
+
+-------------
+
+Si le doy la condicion IFS=$'\n' estoy omitiendo el enter.
+
+#!/bin/bash
+IFS=$'\n'
+for LINEA in `cat /etc/passwd`; do
+  echo $LINEA
+done
+         
+-------------
+                                                                                                   
+#!/bin/bash
+
+while read LINEA; do
+ echo $LINEA
+done < /etc/passwd
+Otra manera para que no lea el \n
+
+< /etc/passwd -> Que archivo de entrada va a tomar.
+
+-------------
+
+cat /etc/passwd | cut -d ':' -f1-3,5
+Permite cortar la informacion de la consola en las columnas que yo quiera el "-" indica de X a Y, la "," indica una especifica
+
+-------------
+
+cat > miArchivo << EOF
+Crea un archivo y lee hasta que entra el EOF
+
+#!/bin/bash
+cat > README << EOF
+Esto es un readme
+de gnu/linux
+..
+EOF
+cat README
+
+----------
+Ejercicio 1
+
+#!/bin/bash
+
+for LISTAR in /etc/passwd; do
+ USUARIO=`cut $LISTAR -d ':' -f1,5`
+ echo $USUARIO
+done
+
+

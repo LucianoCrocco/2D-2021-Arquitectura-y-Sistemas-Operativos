@@ -1,0 +1,3 @@
+Alumno 1:4
+Alumno 2:7
+Alumno 3:6
