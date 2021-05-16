@@ -1,0 +1,5 @@
+chmod 740 midir/
+chown nobody:users midir/
+chgrp nogroup midir/
+
+Todo con permisos de administrador (root)

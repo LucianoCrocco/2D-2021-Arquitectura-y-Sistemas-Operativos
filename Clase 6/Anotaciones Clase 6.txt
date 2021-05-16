@@ -1,0 +1,47 @@
+- Archivo
+d Directorio
+l Enlace o Acceso Directo
+d Dispositivo de Almacenamiento
+c Dispositivos de Caracteres (impresoras, terminales, etc).
+
+r = Lectura
+w = Escritura
+x = Ejecucion
+
+421 421 421
+rw- r-- r--
+ D   G   O
+ 6   4   4
+
+421 421 421
+rwx r-- r--
+ D   G   O
+ 7   4   4
+
+La suma del 4(r), 2(w) y 1(x) va a dar como resultado el permiso que tiene cada grupo.
+Con esta suma podremos cambiar los permisos de usuarios.
+
+chmod 754 archivo.txt:
+421 421 421
+rwx r-x r--
+ D   G   O
+ 7   5   4
+
+Otro metodo: chmod u=rwx,g=rwx,o=-r(con el menos le saco el permiso).
+
+ls -d "PATH" -> Me trae la informacion de ese directorio sin entrar a los subdirectorios que éste contenga
+Ejemplo: ls -l /etc (Me muestra todo el contenido de etc) || ls -ld (Me muestra solo el directorio etc sin su contenido).
+
+
+
+Solo root puede asignar los permisos y grupos.
+id -> Muestra los grupos disponibles, el user ID y el group ID.
+
+chgrp -> Cambio el grupo principal al cual esta asignado el archivo.
+Ejemplo: chgrp "grupo" "destino"
+chwon -> Cambio el dueño de ese archivo
+Ejemplo -> chwon "NuevoDueño":"NuevoGrupo" "Destino" (Cambiar dueño y grupo)
+Ejemplo -> chown "NuevoDueño" "Destino" (Cambiar solo dueño)
+
+chown -R pepe:sudo /etc, De manera recursiva asigna nuevos 
+
