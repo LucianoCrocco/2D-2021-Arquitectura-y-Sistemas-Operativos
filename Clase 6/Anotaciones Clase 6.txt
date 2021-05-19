@@ -1,3 +1,5 @@
+PERMISOS
+
 - Archivo
 d Directorio
 l Enlace o Acceso Directo
