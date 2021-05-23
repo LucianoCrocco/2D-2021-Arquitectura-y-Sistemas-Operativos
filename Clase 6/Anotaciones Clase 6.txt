@@ -35,7 +35,6 @@ ls -d "PATH" -> Me trae la informacion de ese directorio sin entrar a los subdir
 Ejemplo: ls -l /etc (Me muestra todo el contenido de etc) || ls -ld (Me muestra solo el directorio etc sin su contenido).
 
 
-
 Solo root puede asignar los permisos y grupos.
 id -> Muestra los grupos disponibles, el user ID y el group ID.
 
@@ -46,4 +45,46 @@ Ejemplo -> chwon "NuevoDueño":"NuevoGrupo" "Destino" (Cambiar dueño y grupo)
 Ejemplo -> chown "NuevoDueño" "Destino" (Cambiar solo dueño)
 
 chown -R pepe:sudo /etc, De manera recursiva asigna nuevos 
+
+newgrp "Grupo" permite cambiarme el grupo principal donde estoy en la sesion actual.
+
+USUARIOS
+
+useradd -m -s /bin/bash -c "Usuario de prueba" prueba.
+Crea un usuario en el /home.
+passwd "Usuario" cambia la contraseña del usuario. Solo ejecutable como root
+
+la -g indica el grupo principal, la -G indica grupos adicionales.
+
+grep permite buscar un contenido en un archivo.
+
+grep "Usuario" /etc/passwd || /etc/passwd contiene la informacion del usuario
+grep "Usuario" /etc/group || /etc/group voy a ver a que grupo pertence y grupos asosciados asignados mi usuario.
+grep "Usuario" /etc/shadow || /etc/shadow es donde guarda realmente la contraseña del usuario. Solo puede acceder root.
+
+usermod modifica o agrega un usuario.
+usermod -G sudo,video -a "Usuario"
+La -a hace que agrege a los que ya estan creados, sino lo contiene borra y agrega los nuevos grupos.
+
+userdel prueba || Borra de todos los archivos de configuracion borrar todo lo que exista de ese usuario
+userdel -r prueba || Borra de todos los archivos de configuracion borrar todo lo que exista de ese usuario y el usuario en el /home
+
+groupadd "nombre"
+Nos permite agreagar un nuevo grupo, el contenido se guarda en /etc/group
+
+groupdel "nombre"
+Nos permite borrar un grupo.
+
+Usuarios		Grupos
+useradd			groupadd
+usermod			groupmod
+userdel			groupdel
+
+/etc/skel/ || Toma esos archivos como base cuando se crea un usuario, es decir, toma los archivos de ese directorio y los copia en el /home/ de ese usuario nuevo.
+
+Si no le asigno una shell valida no tendrá un interprete de comandos.
+
+login -> loguearse como otro user.
+logout o CTRL+D -> desloguearse.
+
 
