@@ -52,7 +52,7 @@ USUARIOS
 
 useradd -m -s /bin/bash -c "Usuario de prueba" prueba.
 Crea un usuario en el /home.
-passwd "Usuario" cambia la contraseña del usuario. Solo ejecutable como root
+passwd "Usuario" -> cambia la contraseña del usuario. Solo ejecutable como root
 
 la -g indica el grupo principal, la -G indica grupos adicionales.
 
