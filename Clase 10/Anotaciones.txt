@@ -1,0 +1,61 @@
+https://docs.docker.com/
+
+
+ps aux | grep docker -> Nos avisa que proceso se esta ejecutando por los servicios de docker.
+
+-------
+
+ifconfig -> Me muestra las placas de red detectadas y configuradas
+
+-------
+
+Docker genera una placa de red (virtual) para ser utilizada entre su red, similiar al trabajo que hace virtual box.
+Docker genera un enrutamiento, tambien me genera de forma automatica las reglas del Firewall
+
+-------
+
+Todo corre bajo una misma ip, a su vez el host puede generar varios contenedores. Se suele contener "un solo" servicio (Puedo tener varios, pero la idea es que sea uno solo y que se comuniquen entre los contenedores).
+
+Solamente puedo armar contenedores de Linux, un contenedor puede correr en diferentes SO de Linux y ejectuarse en un SO en modo lectura. Podriamos decir que ese contenedor genera un puntero a la imagen Linux
+
+-------
+
+docker --help -> Lista de comandos de docker.
+docker info -> Cuantos contenedores tengo y su informacion.
+docker version -> Me da las versiones de docker y sus complementos.
+
+-------
+
+https://hub.docker.com/ docker hub es un repositorio que me permite subir o bajar imagenes.
+docker login me permite acceder a docker
+
+-------
+
+docker search "nombre" -> busca contenedores con ese nombre
+docker pull "nombre:version(opcional)" -> baja una imagen del repositorio de docker hub. Estan en modo lectura. Suele bajar una imagen base (¿sin interfaz grafica?), x ejemplo bajando ubuntu (2gb aprox) baja una imagen de 72.7MB
+
+docker image ls -> Veo las imagenes que baje
+
+docker run -ti "nombre:version(opcional)" "shell(/bin/bash - En realidad es el comando que queremos ejecutar, x ejemplo /usr/etc/python-3)" (t: terminal - i:_ interactiva) -> Genera un contenedor (docker run) y toma esa imagen para ejecturala (lectura-escritura). 
+Una vez dentro de esa imagen puedo instalar paquetes, ejemplo: apt-get install figlet | figlet "Docker"
+
+docker contanier ps -> Muestra los contenedores que se estan ejecutando.
+docker contanier ps -a -> Muestra el historial de ejecucion de los containers.
+
+docker container start "identificador" -> El container cuando se cierra esta en "stop", con este comando levanto el contenedor
+Si bien "se prende", no puedo ingresar a la terminal. Para eso le podemos utilizar: 
+docker container attach "identificador" -> Me "conecto/sumo" a ese contenedor.
+
+docker container commit "identificador" -> Genere un commit de mi contenedor (ej: imagen ubuntu + actualizaciones + aplicaciones).
+docker image ls -> Muestra todas las imagenes que baje en mi S.O
+docker image tag "IMAGE ID" "NOMBRE:TAG" -> Cambiar el nombre y el tag de mi contenedor generado en el commit
+
+docker image history "REPOSITORY" -> Nos muestra que se hizo hasta su commit.
+
+docker contaier diff "identificador" -> Nos muestra que se hizo hasta la ultima vez que se commiteo.
+
+
+-------
+
+ANOTACION: Las imagenes no se modifican, se modifican los contenedores.
+
