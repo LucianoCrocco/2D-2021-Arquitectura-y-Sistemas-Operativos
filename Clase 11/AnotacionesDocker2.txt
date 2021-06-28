@@ -1,0 +1,26 @@
+docker container un/pause -> Pausea o despausea un container en ejecucion.
+docker container stop -> Stoppea un docker en ejecucion
+docker container exec "ID" "comando" -> Si el container esta levantado, ejecuta ese comando, ejemplo: docker container exec aab9fbab9e79 figlet "Hola UTN"
+docker container stats -> Me va diciendo cuando consume de CPU, memoria, el limite real de la maquina, informacion de la red, etc | CTRL+C para stopear
+docker container port "ID" -> Me da informacion de la maquina, diciendome que puertos esta utilizando la aplicaion corriendo en docker.
+docker container logs "ID" ->
+docker container prune -> Borra los contenedores stopeados.
+
+
+
+docker image history -> Las capas que contiene mi image
+docker image ls | grep "ID" -> Haciendo un history me devuelve el ID de una imagen, con el grep puedo ver la 
+informacion de esa imagen que utilice para las capas.
+
+docker image rmi -f "Nombre" -> Borra de manera forzada la imagen y zel contenedor que la utiliza. Si el contenedor esta corriendo no lo borra.
+
+
+
+docker login -> Ingreso a mi docker HUB para subir mis imagenes. Para subir mi imagen en el tag tengo que poner el nombre de mi repositorio, ejemplo: luciano/miubuntu-nuevo:latest
+docker push "tag" -> Subo a mi repositorio el nombre de mi imagen
+docker search "nombre" -> Busco imagenes con ese nombre dentro de los repositorio de docker hub
+docker image save "nombre" -o "nombre".tar -> Guarda mi imagen como un archivo tar
+docker image load -> Carga una imagen de un archivo tar o STDIN, si es tar utilizar -i
+docker image build "direccion" -t "tag imagen" -> Buildea una imagen desde un archivo de docker
+docker container run "tag" (figlet(Si lo tiene) "mensaje") -> Ejecuta un contenedor con una imagen ya creada.
+docker container run --rm "tag" figlet(Si lo tiene) "mensaje" -> --rm Ejectua el contenedor y lo borra cuando termina de ejecutarse
